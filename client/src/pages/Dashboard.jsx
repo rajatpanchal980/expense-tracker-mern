@@ -40,10 +40,10 @@ function Dashboard() {
         try {
             setLoading(true);
 
-            const response = await axios.get(
-                "http://localhost:3000/api/expenses",
-                config
-            );
+            const response = await axios.get
+                (`${import.meta.env.VITE_API_URL}/api/expenses`,
+                    config
+                );
 
             setTransactions(response.data);
 
@@ -77,7 +77,7 @@ function Dashboard() {
         try {
 
             await axios.delete(
-                `http://localhost:3000/api/expenses/${id}`,
+                `${import.meta.env.VITE_API_URL}/api/expenses/${id}`,
                 config
             );
 

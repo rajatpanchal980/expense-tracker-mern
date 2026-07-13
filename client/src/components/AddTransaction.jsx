@@ -57,7 +57,7 @@ function AddTransaction({
         try {
             if (isEditing) {
                 await axios.put(
-                    `http://localhost:3000/api/expenses/${editId}`,
+                    `${import.meta.env.VITE_API_URL}/api/expenses/${editId}`,
                     expenseData,
                     config
                 );
@@ -67,11 +67,11 @@ function AddTransaction({
                 setIsEditing(false);
                 setEditId(null);
             } else {
-                await axios.post(
-                    "http://localhost:3000/api/expenses",
-                    expenseData,
-                    config
-                );
+                await axios.post
+                    (`${import.meta.env.VITE_API_URL}/api/expenses`,
+                        expenseData,
+                        config
+                    );
 
                 toast.success("Transaction Added");
             }
