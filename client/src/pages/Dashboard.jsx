@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
+import BudgetCard from "../components/BudgetCard";
 
 import Header from "../components/Header";
 import Balance from "../components/Balance";
@@ -15,6 +16,7 @@ import TransactionList from "../components/TransactionList";
 function Dashboard() {
 
     const token = localStorage.getItem("token");
+    console.log("TOKEN:", token);
 
     const config = {
         headers: {
@@ -136,6 +138,9 @@ dark:from-slate-600 dark:via-slate-500 dark:to-slate-700 transition-all duration
                 <MonthlyChart transactions={transactions} />
 
                 <DashboardStats transactions={transactions} />
+                <BudgetCard token={token}
+                    expenses={transactions}
+                />
 
                 <ExportButtons transactions={transactions} />
 

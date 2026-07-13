@@ -1,3 +1,4 @@
+import budgetRoutes from "./routes/budgetRoutes.js";
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -21,6 +22,7 @@ connectDB();
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/expenses", expenseRoutes);
+app.use("/api/budget", budgetRoutes);
 
 // Home Route
 app.get("/", (req, res) => {
