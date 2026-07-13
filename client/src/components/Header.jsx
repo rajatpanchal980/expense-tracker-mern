@@ -23,9 +23,9 @@ function Header() {
     const handleLogout = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
-        navigate("/login");
-        window.location.reload();
+        navigate("/login", { replace: true });
     };
+
 
     return (
         <div className="flex flex-col md:flex-row justify-between items-center gap-5 py-6">
